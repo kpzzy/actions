@@ -60,8 +60,7 @@ jobs:
       - run: npm run build --if-present
 
       - name: zip file
-        run: zip -r hous.zip .github/workflows ./controllers ./middlewares ./models ./passport ./routes ./package.json ./package-lock.json ./app.js ./services ./exception ./errorhandler ./config
-
+        run: zip -r hous.zip .github/workflows ./package.json ./package-lock.json
       - name: AWS configure credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -70,7 +69,7 @@ jobs:
           aws-region: ap-northeast-2
 
       - name: upload to S3
-        run: aws s3 cp --region ap-northeast-2 ./hous.zip s3://sd-build/action-test
+        run: aws s3 cp --region ap-northeast-2 ./hous.zip s3://sd-build/action-test/
 
       - name: deploy with AWS codeDeploy
         run: aws deploy create-deployment
