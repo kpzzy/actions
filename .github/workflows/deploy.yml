@@ -36,7 +36,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: sudo -s
+        run: node -v
 
       # Runs a set of commands using the runners shell
       - name: create env
@@ -79,7 +79,7 @@ jobs:
           --s3-location bucket=sd-build,bundleType=zip,key=action-test/hous.zip
 
       - name: pm2 restart
-        run: sudo pm2 restart app
+        run: pm2 restart app
 #
 # - name: pm2 start
 #   run: sudo pm2 start app.js
