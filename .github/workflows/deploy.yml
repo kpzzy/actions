@@ -76,7 +76,7 @@ jobs:
           --application-name sd-cd
           --deployment-config-name CodeDeployDefault.AllAtOnce
           --deployment-group-name baepo
-          --s3-location bucket=sd-build,bundleType=zip,key=deploy/hous.zip
+          --s3-location bucket=sd-build,bundleType=zip,key=action-test/hous.zip
 
       - name: pm2 install
         run: sudo npm install -g pm2
