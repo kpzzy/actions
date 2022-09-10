@@ -84,8 +84,8 @@ jobs:
       - name: pm2 install
         run: sudo npm install -g pm2
 
-      # - name: cd src
-      #   run: cd src
+      - name: cd src
+        run: cd src
 
       # - name: pm2 kill
       #   run: sudo pm2 kill
