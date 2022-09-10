@@ -60,7 +60,7 @@ jobs:
       - run: npm run build --if-present
 
       - name: zip file
-        run: zip -r hous.zip .github/workflows ./package.json ./package-lock.json ./src
+        run: zip -r hous.zip .github/workflows ./package.json ./package-lock.json ./src ./node_modules
       - name: AWS configure credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -79,7 +79,7 @@ jobs:
           --s3-location bucket=sd-build,bundleType=zip,key=action-test/hous.zip
 
       - name: pm2 restart
-        run: pm2 restart app.js
+        run: sudo pm2 restart all
 #
 # - name: pm2 start
 #   run: sudo pm2 start app.js
