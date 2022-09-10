@@ -80,8 +80,8 @@ jobs:
       - name: ls -al
         run: ls -al
 
-      # - name: pm2 kill
-      #   run: sudo pm2 kill
+      - name: pm2 kill
+        run: sudo pm2 kill
 
       # - name: pm2 start
       #   run: sudo pm2 start app.js
