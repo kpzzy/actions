@@ -60,7 +60,7 @@ jobs:
       - run: npm run build --if-present
 
       - name: zip file
-        run: zip -r hous.zip .github/workflows ./appspec.yml ./scripts ./controller ./database ./middlewares ./models ./passport ./router ./package.json ./package-lock.json ./app.js ./server.js ./socket.js ./prettierrc.js
+        run: zip -r hous.zip .github/workflows ./controllers ./middlewares ./models ./passport ./routes ./package.json ./package-lock.json ./app.js ./services ./exception ./errorhandler ./config
 
       - name: AWS configure credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -84,8 +84,6 @@ jobs:
       - name: pm2 install
         run: sudo npm install -g pm2
 
-      - name: cd src
-        run: cd src
       - name: ls -al
         run: ls -al
 
@@ -93,7 +91,7 @@ jobs:
       #   run: sudo pm2 kill
 
       - name: pm2 restart
-        run: sudo pm2 restart app
+        run: sudo pm2 restart app.js
 #
 # - name: pm2 start
 #   run: sudo pm2 start app.js
