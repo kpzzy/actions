@@ -78,10 +78,12 @@ jobs:
           --deployment-group-name baepo
           --s3-location bucket=w8codepipline,bundleType=zip,key=deploy/hous.zip
 
-      - name: pm2 restart
-        run: sudo pm2 restart app.js
       - name: check
         run: sudo service codedeploy-agent status
+
+      - name: pm2 restart
+        run: sudo pm2 restart app.js
+
       # - name: pm2 start
       #   run: sudo pm2 start app.js
       # - name: Cache node modules
