@@ -19,6 +19,7 @@ export default class PostBookmark extends Sequelize.Model {
       }
     );
   }
+  //
   // belongsTo로 받아옴
   static associate(db) {
     db.post_bookmark.belongsTo(db.post, {
