@@ -93,7 +93,7 @@ jobs:
       #   run: sudo pm2 kill
 
       - name: pm2 restart
-        run: sudo pm2 restart app.js
+        run: sudo pm2 restart app
 #
 # - name: pm2 start
 #   run: sudo pm2 start app.js
