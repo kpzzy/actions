@@ -69,4 +69,4 @@ jobs:
           aws s3 cp \
           --recursive \
           --region ap-northeast-2 \
-          npm run dev s3://sd-build
+          build s3://sd-build
