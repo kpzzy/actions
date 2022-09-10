@@ -61,6 +61,9 @@ jobs:
         run: |
           npm install
 
+      - name: check
+        run: pwd
+
       - name: Deploy
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
