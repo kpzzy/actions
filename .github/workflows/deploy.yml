@@ -79,19 +79,8 @@ jobs:
           --deployment-group-name baepo
           --s3-location bucket=w8codepipline,bundleType=zip,key=deploy/hous.zip
 
-      # - name: node
-      #   run: npm run dev
-      - name: pm2 install
-        run: sudo npm install -g pm2
-
-      - name: ls -al
-        run: ls -al
-
-      # - name: pm2 kill
-      #   run: sudo pm2 kill
-
       - name: pm2 restart
-        run: sudo pm2 restart ./src/app.js
+        run: sudo pm2 restart all
 #
 # - name: pm2 start
 #   run: sudo pm2 start app.js
