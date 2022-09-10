@@ -33,6 +33,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'npm'
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
@@ -56,8 +57,29 @@ jobs:
           echo COOKIE_SECRET=${{ secrets.COOKIE_SECRET }} >> .env
           echo JWT_SECRET=${{ secrets.JWT_SECRET }} >> .env
 
-          ls -al
+      - run: npm ci
+      - run: npm run build --if-present
 
+      - name: zip file
+        run: zip -r hous.zip .github/workflows ./appspec.yml ./scripts ./controller ./database ./middlewares ./models ./passport ./router ./package.json ./package-lock.json ./app.js ./server.js ./socket.js ./prettierrc.js
+
+      - name: AWS configure credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-2
+
+      - name: upload to S3
+        run: aws s3 cp --region ap-northeast-2 ./hous.zip s3://sd-build
+      - name: deploy with AWS codeDeploy
+        run: aws deploy create-deployment
+          --application-name W8_CD2
+          --deployment-config-name CodeDeployDefault.AllAtOnce
+          --deployment-group-name w8cd
+          --s3-location bucket=w8codepipline,bundleType=zip,key=deploy/hous.zip
+      - name: pm2 start
+        run: sudo pm2 restart server
       # - name: Cache node modules
       #   uses: actions/cache@v1
       #   with:

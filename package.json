@@ -8,7 +8,7 @@
     "start": "cross-env NODE_ENV=production PORT=80 pm2 start ./src/app.js -i 0",
     "dev": "nodemon ./src/app.js",
     "test": "jest",
-    "build": "webpack"
+    "build": ""
   },
   "author": "kpzzy",
   "license": "MIT",
