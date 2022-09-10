@@ -59,4 +59,5 @@ jobs:
       - name: build server files
         working-directory: ./
         run: |
-          node app.js
+          yarn
+          yarn run build
