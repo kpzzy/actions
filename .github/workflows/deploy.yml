@@ -60,4 +60,3 @@ jobs:
         working-directory: ./
         run: |
           npm install
-          npm run dev
