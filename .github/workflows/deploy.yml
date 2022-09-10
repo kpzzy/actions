@@ -79,7 +79,7 @@ jobs:
           --s3-location bucket=sd-build,bundleType=zip,key=action-test/hous.zip
 
       - name: pm2 restart
-        run: pm2 restart app
+        run: pm2 restart app.js
 #
 # - name: pm2 start
 #   run: sudo pm2 start app.js
