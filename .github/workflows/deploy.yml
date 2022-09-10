@@ -59,4 +59,4 @@ jobs:
       - name: build server files
         working-directory: ./
         run: |
-          npm run dev
+          node app.js
