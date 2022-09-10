@@ -8,7 +8,7 @@ import passport from 'passport';
 import passportConfig from './passport/index.js';
 import connectRedis from 'connect-redis';
 import morgan from 'morgan';
-
+//test
 let RedisStore = connectRedis(session);
 const app = express();
 
