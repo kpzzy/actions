@@ -56,6 +56,15 @@ jobs:
           echo COOKIE_SECRET=${{ secrets.COOKIE_SECRET }} >> .env
           echo JWT_SECRET=${{ secrets.JWT_SECRET }} >> .env
 
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-build-
+            ${{ runner.OS }}-
+
       - name: build server files
         working-directory: ./
         run: |
