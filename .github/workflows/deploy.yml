@@ -56,9 +56,6 @@ jobs:
           echo COOKIE_SECRET=${{ secrets.COOKIE_SECRET }} >> .env
           echo JWT_SECRET=${{ secrets.JWT_SECRET }} >> .env
 
-      - name: delete package-lock.json
-        run: rm package-lock.json
-
       - name: build server files
         working-directory: ./
         run: |
