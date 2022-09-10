@@ -60,7 +60,7 @@ jobs:
       - run: npm run build --if-present
 
       - name: zip file
-        run: zip -r hous.zip .github/workflows ./package.json ./package-lock.json
+        run: zip -r hous.zip .github/workflows ./package.json ./package-lock.json ./src
       - name: AWS configure credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
