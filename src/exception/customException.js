@@ -5,7 +5,7 @@ class CustomException extends Error {
 
   constructor(message, statusCode = 500) {
     super(message);
-
+    //
     this.success = false;
     this.name = 'CustomException';
     this.message = message;
