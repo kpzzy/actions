@@ -60,7 +60,7 @@ jobs:
       - run: npm run build --if-present
 
       - name: zip file
-        run: zip -r hous.zip .github/workflows ./package.json ./package-lock.json ./src ./node_modules
+        run: zip -r hous.zip .github/workflows ./package.json ./package-lock.json ./src ./node_modules ./appspec.yml
       - name: AWS configure credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -76,7 +76,7 @@ jobs:
           --application-name sd-cd
           --deployment-config-name CodeDeployDefault.AllAtOnce
           --deployment-group-name baepo
-          --s3-location bucket=sd-build,bundleType=zip,key=action-test/hous
+          --s3-location bucket=sd-build,bundleType=zip,key=action-test/hous.zip
 
       - name: pm2 restart
         run: sudo pm2 restart all
