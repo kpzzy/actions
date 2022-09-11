@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/runner/work/actions/actions
+    destination: /home/ubuntu/QBChaining-BE
     overwrite: yes
 
 permissions:
