@@ -1,5 +1,8 @@
-REPOSITORY=/home/ubuntu/QBChaining-BE/src
+#!/bin/bash
+REPOSITORY=/home/ubuntu/QBChaining-BE
 
 cd $REPOSITORY
 
-sudo pm2 restart app.js
+sudo npm ci
+
+sudo pm2 restart ./src/app.js
