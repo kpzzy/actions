@@ -16,4 +16,5 @@ hooks:
   AfterInstall:
     - location: scripts/after-deploy.sh
       timeout: 300
+      # runas는 사용자 이름
       runas: ubuntu
