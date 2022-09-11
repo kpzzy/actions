@@ -1,3 +1,5 @@
+[![CI](https://github.com/kpzzy/actions/actions/workflows/deploy.yml/badge.svg?branch=dev)](https://github.com/kpzzy/actions/actions/workflows/deploy.yml)
+
 ## 기획의도
 
 공백
