@@ -54,7 +54,7 @@ jobs:
 
       # - run: npm install
       # - run: npm run build --if-present
-
+      # - 이름 바꾸기 ${{github.event.head_commit.timestamp}}
       - name: zip file
         run: zip -r hous.zip .github/workflows ./package.json ./package-lock.json ./src ./appspec.yml ./scripts .env
       - name: AWS configure credentials
